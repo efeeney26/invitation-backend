@@ -5,4 +5,6 @@ const port = process.env.PORT || 8080;
 
 app.get('/', (req, res) => res.send('Express + TypeScript Server'));
 
-app.listen(port, () => console.log(`App listening at http://localhost:${port}`));
+app.listen(port, () => {
+    console.log(`App listening at http://localhost:${port}`)
+});
