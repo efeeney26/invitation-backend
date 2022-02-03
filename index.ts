@@ -1,10 +1,24 @@
-import express from 'express'
+import express from 'express';
+import { config } from 'dotenv';
+
+import dbConfig from './db/config';
+import guestsRouter from './routes/guests';
+
+config();
 
 const app = express();
 const port = process.env.PORT || 8080;
 
-app.get('/', (req, res) => res.send('Express + TypeScript Server'));
+app.use('/api/guests', guestsRouter);
 
 app.listen(port, () => {
-    console.log(`App listening at http://localhost:${port}`)
+  console.info(`App listening at http://localhost:${port}`);
 });
+
+dbConfig
+  .on('error', (err) => {
+    console.error(err);
+  })
+  .once('open', () => {
+    console.log('Database Connected Successfully');
+  });
