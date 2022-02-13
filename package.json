@@ -8,8 +8,10 @@
   "description": "Wedding invitation backend services",
   "main": "index.ts",
   "scripts": {
-    "start:dev": "ts-node-dev ./index.ts",
-    "start": "tsc && node ./build/index.js"
+    "start": "node ./build/index.js",
+    "build": "tsc",
+    "postinstall": "npm run build",
+    "start:dev": "ts-node-dev ./index.ts"
   },
   "keywords": [],
   "author": "",
