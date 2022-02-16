@@ -9,14 +9,15 @@
   "main": "index.ts",
   "scripts": {
     "start": "node ./build/index.js",
+    "start:dev": "ts-node-dev ./index.ts",
     "build": "tsc",
-    "postinstall": "npm run build",
-    "start:dev": "ts-node-dev ./index.ts"
+    "postinstall": "npm run build"
   },
   "keywords": [],
   "author": "",
   "license": "UNLICENSED",
   "dependencies": {
+    "body-parser": "1.19.2",
     "dotenv": "^16.0.0",
     "express": "4.17.2",
     "mongoose": "6.2.0"
