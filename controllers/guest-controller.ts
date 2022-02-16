@@ -16,7 +16,8 @@ export const addGuest = async (req: Request, res: Response) => {
   const {
     body: {
       name,
-      invitation
+      invitation,
+      accept
     }
   } = req
   try {
@@ -27,7 +28,8 @@ export const addGuest = async (req: Request, res: Response) => {
     }
     const newGuest = await GuestModel.create({
       name,
-      invitation
+      invitation,
+      accept
     })
     res.send(newGuest)
   } catch (err) {
