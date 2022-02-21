@@ -13,10 +13,7 @@ const port = process.env.PORT || 8080;
 
 app.use(bodyParser.json({ limit: '10mb' }));
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(cors({
-    origin: ['https://efeeney26.github.io/invitation-admin-frontend'],
-    optionsSuccessStatus: 200
-}))
+app.use(cors());
 
 app.use('/api/guests', guestsRouter);
 
