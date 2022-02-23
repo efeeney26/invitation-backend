@@ -9,7 +9,7 @@ router
 
   .post('/addGuest', guestController.addGuest)
 
-  .delete('/deleteGuest', guestController.deleteGuest)
+  .patch('/deleteGuest', guestController.deleteGuest)
 
   .patch('/updateGuest', guestController.updateGuest)
 

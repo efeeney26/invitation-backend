@@ -45,7 +45,7 @@ export const deleteGuest = async (req: Request, res: Response) => {
   } = req
   try {
     if (Boolean(await GuestModel.findByIdAndDelete(guest))) {
-      res.send({ message: 'Гость удален'})
+      res.send({ message: `Гость ${guest.name} удален`})
     } else {
       handleError(res, new Error('Пользователя для удаления не существует'))
     }
