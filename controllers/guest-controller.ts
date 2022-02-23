@@ -15,23 +15,17 @@ export const getGuests = async (req: Request, res: Response) => {
 export const addGuest = async (req: Request, res: Response) => {
   const {
     body: {
-      name,
-      invitation,
-      accept
+      guest
     }
   } = req
   try {
-    const isGuestExist = Boolean(await GuestModel.findOne({ name }))
+    const isGuestExist = Boolean(await GuestModel.findOne({ name: guest.name }))
     if (isGuestExist) {
       handleError(res, new Error('Такой гость уже существует'))
       return
     }
-    const newGuest = await GuestModel.create({
-      name,
-      invitation,
-      accept
-    })
-    res.send(newGuest)
+    const newGuest = await GuestModel.create(guest)
+    res.send({ message: `Гость ${newGuest.name} добавлен`})
   } catch (err) {
     handleError(res, err)
   }
