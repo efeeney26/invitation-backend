@@ -73,7 +73,10 @@ export const updateGuest = async (req: Request, res: Response) => {
     }
   } = req
   try {
-    if (Boolean(await GuestModel.findByIdAndUpdate(guest, { ...guest }))) {
+    if (Boolean(await GuestModel.findOne({ name: guest.name }))) {
+      handleError(res, new Error('Пользователя уже есть такой'))
+      return
+    } else if (Boolean(await GuestModel.findByIdAndUpdate(guest, { ...guest }))) {
       res.send({ message: 'Данные по гостю обновлены'})
     } else {
       handleError(res, new Error('Пользователя для обновления не существует'))
