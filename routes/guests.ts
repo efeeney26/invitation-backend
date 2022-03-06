@@ -7,6 +7,8 @@ const router = express.Router();
 router
   .get('/', guestController.getGuests)
 
+  .get('/guest', guestController.getGuest)
+
   .post('/addGuest', guestController.addGuest)
 
   .patch('/deleteGuest', guestController.deleteGuest)

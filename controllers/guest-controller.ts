@@ -12,6 +12,24 @@ export const getGuests = async (req: Request, res: Response) => {
   }
 };
 
+export const getGuest = async (req: Request, res: Response) => {
+  const {
+    query: {
+      id
+    }
+  } = req
+  try {
+    const guest = await GuestModel.findById(id);
+    if (guest) {
+      res.send(guest)
+      return
+    }
+    handleError(res, new Error('Гость не найден'))
+  } catch (err) {
+    handleError(res, err)
+  }
+};
+
 export const addGuest = async (req: Request, res: Response) => {
   const {
     body: {
