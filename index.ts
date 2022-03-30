@@ -1,10 +1,12 @@
 import express from 'express';
 import { config } from 'dotenv';
 import bodyParser from 'body-parser';
-import cors from 'cors'
+import cors from 'cors';
+import cookieParser from 'cookie-parser';
 
 import dbConfig from './db/config';
 import guestsRouter from './routes/guests';
+import authRouter from './routes/auth'
 
 config();
 
@@ -14,7 +16,9 @@ const port = process.env.PORT || 8080;
 app.use(bodyParser.json({ limit: '10mb' }));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
+app.use(cookieParser('auth_inv'))
 
+app.use('/api/auth', authRouter);
 app.use('/api/guests', guestsRouter);
 
 app.listen(port, () => {
