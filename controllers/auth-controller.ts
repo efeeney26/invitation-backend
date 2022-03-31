@@ -10,7 +10,7 @@ export const auth = async (req: Request, res: Response) => {
     try {
         if (atob(secret) === process.env.SECRET) {
             res.cookie('auth_inv', 'inv', {
-                maxAge: 3600 * 100000000000000,
+                maxAge: 3600 * 100000,
                 path: '/',
                 sameSite: 'none',
                 secure: true
