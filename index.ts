@@ -22,8 +22,7 @@ app.use(cors({
     'http://localhost:3001',
     'https://danilanadya.ru',
     'https://efeeney26.github.io'
-    ],
-    exposedHeaders: 'set-cookie'
+    ]
 }));
 app.use(cookieParser('auth_inv'))
 
