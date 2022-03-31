@@ -15,12 +15,16 @@ const port = process.env.PORT || 8080;
 
 app.use(bodyParser.json({ limit: '10mb' }));
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(cors({ credentials: true, origin: [
+app.use(cors({
+    credentials: true,
+    origin: [
     'http://localhost:3000',
     'http://localhost:3001',
     'https://danilanadya.ru',
     'https://efeeney26.github.io'
-]}));
+    ],
+    exposedHeaders: 'set-cookie'
+}));
 app.use(cookieParser('auth_inv'))
 
 app.use('/api/auth', authRouter);
