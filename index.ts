@@ -19,7 +19,7 @@ app.use(cors({ credentials: true, origin: [
     'http://localhost:3000',
     'http://localhost:3001',
     'https://danilanadya.ru',
-    'https://efeeney26.github.io/invitation-admin-frontend'
+    'https://efeeney26.github.io'
 ]}));
 
 app.use('/api/auth', authRouter);
