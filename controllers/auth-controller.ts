@@ -9,12 +9,12 @@ export const auth = async (req: Request, res: Response) => {
     } = req
     try {
         if (atob(secret) === process.env.SECRET) {
-            res.cookie('auth_inv', 'inv', {
+            /*res.cookie('auth_inv', 'inv', {
                 maxAge: 3600 * 100000,
                 path: '/',
                 sameSite: 'none',
                 secure: true
-            })
+            })*/
             res.send({
                 status: 'OK'
             })
