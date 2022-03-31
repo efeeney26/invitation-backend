@@ -21,6 +21,7 @@ app.use(cors({ credentials: true, origin: [
     'https://danilanadya.ru',
     'https://efeeney26.github.io'
 ]}));
+app.use(cookieParser('auth_inv'))
 
 app.use('/api/auth', authRouter);
 app.use('/api/guests', guestsRouter);
